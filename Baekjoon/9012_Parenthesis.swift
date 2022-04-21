@@ -10,31 +10,22 @@ import Foundation
 var repetition = Int(readLine()!)!
 
 for _ in 0..<repetition {
+    var arr:[Character] = []
     let input = readLine()!
-    var inputList = input.unicodeScalars.map(String.init)
+    
     var count = 0
-
-    while(true) {
-        if count >= inputList.count {
-            if inputList.isEmpty {
-                print("YES")
-            }
-            else{
-                print("NO")
-            }
-//            print(inputList.isEmpty ? "YES" : "NO" )
-            break
-        }
-        if count == 0 && inputList[0] != "(" {
-            print("NO")
-            break
-        }
-        if inputList[count] == "(" {
+    
+    for i in input {
+        if i == "(" {
+            arr.append("(")
             count += 1
-        }else{
-            inputList.remove(at: count)
-            inputList.remove(at: count-1)
-            count = 0
+        }else {
+            if arr.isEmpty {
+                break
+            }
+            arr.removeLast()
+            count += 1
         }
     }
+    print(arr.isEmpty && count == input.count ? "YES" : "NO")
 }
