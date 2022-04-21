@@ -10,22 +10,20 @@ import Foundation
 var repetition = Int(readLine()!)!
 
 for _ in 0..<repetition {
-    var arr:[Character] = []
-    let input = readLine()!
-    
-    var count = 0
+    var result:Int = 0
+    let input = readLine() ?? ""
     
     for i in input {
-        if i == "(" {
-            arr.append("(")
-            count += 1
-        }else {
-            if arr.isEmpty {
+        // ) 으로 시작하지만 짝수개인 경우 )시작하는 것 예외처리하기
+        if i == "("{
+            result += 1
+        }else{
+            if result == 0 {
+                result -= 1
                 break
             }
-            arr.removeLast()
-            count += 1
+            result -= 1
         }
     }
-    print(arr.isEmpty && count == input.count ? "YES" : "NO")
+    print(result==0 ? "YES" : "NO")
 }
