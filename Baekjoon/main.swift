@@ -12,8 +12,6 @@ let n = input![0]
 let m = input![1]
 
 var arr:[Int] = []
-var used = [Bool] (repeating: false, count: n+1)
-
 var result = ""
 
 
@@ -28,16 +26,17 @@ func rec_func (value : Int) {
         }
         result += "\n"
     }else{
-        for i in 1...n {
-            if used[i]{
-                continue
-            }else {
-                arr.append(i)
-                used[i] = true
-                rec_func(value: value+1)
-                used[i] = false
-                arr.removeLast()
-            }
+        let start:Int
+        if arr.count < 1 {
+            start = 1
+        }else{
+            start = arr[(arr.count)-1]
+        }
+        
+        for i in start...n {
+            arr.append(i)
+            rec_func(value: value+1)
+            arr.removeLast()
         }
     }
 }
