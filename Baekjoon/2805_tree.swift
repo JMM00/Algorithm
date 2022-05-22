@@ -14,7 +14,7 @@ var height = readLine()!.split(separator: " ").compactMap{Int(String($0))!}
 height.sort()
 
 var result = 0
-var start = height[0]
+var start = 0
 var end = height[n-1]
 var mid = 0
 while start < end {
@@ -34,4 +34,3 @@ while start < end {
 }
 
 print(result)
-
