@@ -19,7 +19,6 @@ for _ in 0..<length {
 
     var count = 0
 
-
     arrB.sort()
     for i in 0..<n {
         let x = arrA[i]
