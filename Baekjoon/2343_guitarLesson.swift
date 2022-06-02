@@ -20,8 +20,6 @@ while start <= end {
     let mid = (start + end) / 2
     var sum = 0
     var count = 1
-
-    
     for i in length {
         if sum + i > mid {
             sum = 0
