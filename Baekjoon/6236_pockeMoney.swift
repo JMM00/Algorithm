@@ -4,7 +4,7 @@
 //
 //  Created by Jeon Jimin on 2022/04/26.
 //
-
+// 미완성.._2
 import Foundation
 
 let input = readLine()!.split(separator: " ").map{Int(String($0))!}
