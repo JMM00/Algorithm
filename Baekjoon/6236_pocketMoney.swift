@@ -1,10 +1,9 @@
 //
-//  main.swift
+//  6236_pocketMoney.swift
 //  algorithms_1
 //
 //  Created by Jeon Jimin on 2022/04/26.
 //
-// 미완성.._2
 import Foundation
 
 let input = readLine()!.split(separator: " ").map{Int(String($0))!}
@@ -31,7 +30,8 @@ while low <= high {
         }
         remain -= i
     }
-    if count > m {
+    
+    if count > m || mid < balance.max()!{
         low = mid + 1
     }else {
         result = min(mid, result)
