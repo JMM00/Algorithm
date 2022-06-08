@@ -8,34 +8,26 @@
 import Foundation
 
 let n = Int(readLine()!)!
-let request = readLine()!.split(separator: " ").map{Int(String($0))!}.sorted()
-let budget = Int(readLine()!)!
+let budget = readLine()!.split(separator: " ").map{Int(String($0))!}
+let m = Int(readLine()!)!
 
-var start = 1
-var end = request[n-1]
+var left = 1
+var right = budget.max()!
 
 var result = 0
-
-while start<=end {
-    var sum = 0
-    let mid = (start + end) / 2
+while left <= right {
+    let mid = (left + right) / 2
     
-    for i in request {
-        if i <= mid {
-            sum += i
-        }else {
-            sum += mid
-        }
+    var sum = 0
+    for i in budget {
+        sum += (i < mid) ? i : mid
     }
     
-    if sum > budget {
-        end = mid - 1
-        
+    if sum > m {
+        right = mid - 1
     }else{
-        if result < mid {
-            result = mid
-        }
-        start = mid + 1
+        left = mid + 1
+        result = mid
     }
 }
 print(result)
