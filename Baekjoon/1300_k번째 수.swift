@@ -22,7 +22,6 @@ while left <= right {
     for i in 1...n {
         sum += min(mid/i, n)
     }
-    
     if sum < k {
         left = mid + 1
     }else{
