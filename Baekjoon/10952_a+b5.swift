@@ -8,7 +8,11 @@
 import Foundation
 
 
-while let input = readLine() {
-    let arr = input.split(separator: " ").map{Int(String($0))!}
-    print(arr[0]+arr[1])
+while (true) {
+    let arr = readLine()!.split(separator: " ").map{Int(String($0))!}
+    if arr[0] == 0 && arr[1] == 0 {
+        break
+    }else {
+        print(arr[0]+arr[1])
+    }
 }
